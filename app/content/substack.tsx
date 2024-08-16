@@ -1,4 +1,4 @@
-export default function() {
+export default function () {
   return (
     <div className="w-full flex-col py-1 px-2">
       <p>
@@ -17,32 +17,52 @@ export default function() {
 
       <ul className={"list-disc pl-10 text-red-600 mt-1 marker:text-[#464147]"}>
         <li>
-          <a href={"https://ellesundberg.substack.com/p/how-are-people-affording-fashion"} aria-label={"link to article"}>
+          <a
+            href={
+              "https://ellesundberg.substack.com/p/how-are-people-affording-fashion"
+            }
+            aria-label={"link to article"}
+          >
             How are people affording fashion?
           </a>
         </li>
         <li>
-          <a href={"https://ellesundberg.substack.com/p/theres-168-hours-in-a-week"} aria-label={"link to article"}>
+          <a
+            href={
+              "https://ellesundberg.substack.com/p/theres-168-hours-in-a-week"
+            }
+            aria-label={"link to article"}
+          >
             There's 168 hours in a week
           </a>
         </li>
         <li>
-          <a href={"https://ellesundberg.substack.com/p/its-ok-to-love-fashion"} aria-label={"link to article"}>
+          <a
+            href={"https://ellesundberg.substack.com/p/its-ok-to-love-fashion"}
+            aria-label={"link to article"}
+          >
             It's ok to love fashion!
           </a>
         </li>
         <li>
-          <a href={"https://ellesundberg.substack.com/p/3-crafts-you-can-wear"} aria-label={"link to article"}>
+          <a
+            href={"https://ellesundberg.substack.com/p/3-crafts-you-can-wear"}
+            aria-label={"link to article"}
+          >
             3 crafts you can wear!
           </a>
         </li>
         <li>
-          <a href={"https://ellesundberg.substack.com/p/braindump-on-inspiration-and-sameness"} aria-label={"link to article"}>
+          <a
+            href={
+              "https://ellesundberg.substack.com/p/braindump-on-inspiration-and-sameness"
+            }
+            aria-label={"link to article"}
+          >
             Brain dump on inspiration and sameness: nothing new to see here
           </a>
         </li>
       </ul>
-
 
       <div className={"flex items-center justify-around"}>
         <img
@@ -51,7 +71,6 @@ export default function() {
           alt={"Three hot dogs with mustard reading 'hot dog summer'"}
         />
       </div>
-
     </div>
   );
 }

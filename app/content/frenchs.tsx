@@ -1,6 +1,6 @@
-const imageGroup = "h-64 w-48"
+const imageGroup = "h-64 w-48";
 
-export default function() {
+export default function () {
   return (
     <div className="w-full flex-col py-1 px-2">
       <p>
@@ -27,20 +27,16 @@ export default function() {
         The image below has become French's most engaged with post of all time.
       </p>
       <ul className={"list-disc pl-6"}>
-        <li>
-          137,744 impressions (70x benchmark)
-        </li>
-        <li>
-          5,952 engagements (26x benchmark)
-        </li>
+        <li>137,744 impressions (70x benchmark)</li>
+        <li>5,952 engagements (26x benchmark)</li>
       </ul>
 
       <div className="w-full flex justify-center">
-      <img
-        className={"px-10 my-4 h-96 w-86"}
-        src={"/IMG_7144.jpg"}
-        alt={"Three hot dogs with mustard reading 'hot dog summer'"}
-      />
+        <img
+          className={"px-10 my-4 h-96 w-86"}
+          src={"/IMG_7144.jpg"}
+          alt={"Three hot dogs with mustard reading 'hot dog summer'"}
+        />
       </div>
       <p>Hot dog content has been hot for French's all summer long: </p>
 
@@ -69,7 +65,6 @@ export default function() {
           alt={"Three hot dogs with mustard reading 'hot dog summer'"}
         />
       </div>
-
     </div>
   );
 }

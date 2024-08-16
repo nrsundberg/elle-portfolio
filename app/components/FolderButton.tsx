@@ -9,8 +9,8 @@ export type ContentType = {
 
 type FolderButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   label: string;
-  children: ReactNode
-  gradient: string
+  children: ReactNode;
+  gradient: string;
 };
 
 export function FolderButton({
@@ -47,7 +47,9 @@ export function FolderButton({
         setOpen={setOpen}
         title={label}
         gradient={gradient}
-      >{children}</PopupCard>
+      >
+        {children}
+      </PopupCard>
     </div>
   );
 }

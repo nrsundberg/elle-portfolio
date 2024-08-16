@@ -1,18 +1,17 @@
 import { Dispatch, ReactNode, SetStateAction } from "react";
-import { ContentType } from "./FolderButton";
 
 export default function PopupCard({
   open,
   setOpen,
   title,
   children,
-  gradient
+  gradient,
 }: {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
   title: string;
   children: ReactNode;
-  gradient: string
+  gradient: string;
 }) {
   // orig gradiant
   //from-[#00007b] to-[#0884ce]
@@ -22,7 +21,12 @@ export default function PopupCard({
   // bg-[#cac6cb]
   return (
     open && (
-      <div className={"fixed inset-0 self-center z-50 max-h-[700px] h-fit w-4/5 max-w-[700px] justify-self-center text-[#464147] text-sm border border-white border-b-[#464147] border-r-[#464147] " + gradient}>
+      <div
+        className={
+          "fixed inset-0 self-center z-50 max-h-[700px] h-fit w-4/5 max-w-[700px] justify-self-center text-[#464147] text-sm border border-white border-b-[#464147] border-r-[#464147] " +
+          gradient
+        }
+      >
         <div className="flex flex-row items-center justify-between p-1 ">
           <h1 className="text-white">{title}</h1>
           <div className="flex items-center space-x-0.5">
@@ -51,21 +55,21 @@ export default function PopupCard({
         <div className="space-y-0.5 bg-[#808080]">
           <div className="p-1 bg-[#e7e7e7] h-[700px] overflow-auto">
             {/*<div className="flex flex-col mt-2 space-y-3">*/}
-              {/*{contentpopup.map((item, index) => (*/}
-              {/*  <div*/}
-              {/*    key={index}*/}
-              {/*    className="flex flex-row items-center justify-between"*/}
-              {/*  >*/}
-              {/*    <img*/}
-              {/*      src={item.image}*/}
-              {/*      alt={"chosen helper icon"}*/}
-              {/*      className="w-10 h-10"*/}
-              {/*    />*/}
-              {/*    <span>{item.text}</span>*/}
-              {/*  </div>*/}
-              {/*))}*/}
-              {children}
-              {/*<span className="text-[#a099a1]">Footer card text.</span>*/}
+            {/*{contentpopup.map((item, index) => (*/}
+            {/*  <div*/}
+            {/*    key={index}*/}
+            {/*    className="flex flex-row items-center justify-between"*/}
+            {/*  >*/}
+            {/*    <img*/}
+            {/*      src={item.image}*/}
+            {/*      alt={"chosen helper icon"}*/}
+            {/*      className="w-10 h-10"*/}
+            {/*    />*/}
+            {/*    <span>{item.text}</span>*/}
+            {/*  </div>*/}
+            {/*))}*/}
+            {children}
+            {/*<span className="text-[#a099a1]">Footer card text.</span>*/}
             {/*</div>*/}
           </div>
         </div>
