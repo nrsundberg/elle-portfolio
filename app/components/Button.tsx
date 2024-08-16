@@ -1,7 +1,7 @@
-import logoIMG from "../../public/favicon.ico";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  children: React.ReactNode;
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  children: ReactNode;
 };
 
 export function Button({ children, ...props }: ButtonProps) {
@@ -14,8 +14,8 @@ export function Button({ children, ...props }: ButtonProps) {
       // active={open}
     >
       <img
-        src={logoIMG}
-        alt="react95 logo"
+        src={"favicon.ico"}
+        alt="Elle Creative Co. logo"
         style={{ height: "20px", marginRight: 4 }}
       />
       {children}

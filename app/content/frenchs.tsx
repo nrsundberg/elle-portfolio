@@ -44,25 +44,27 @@ export default function () {
         <img
           className={imageGroup}
           src={"/IMG_7143.jpg"}
-          alt={"Three hot dogs with mustard reading 'hot dog summer'"}
+          alt={"One million hot dogs will be consumed article headline"}
         />
 
         <img
           className={imageGroup}
           src={"/IMG_7141.jpg"}
-          alt={"Three hot dogs with mustard reading 'hot dog summer'"}
+          alt={"Fake olympic podium for hot dog eating"}
         />
 
         <img
           className={imageGroup}
           src={"/IMG_7140.jpg"}
-          alt={"Three hot dogs with mustard reading 'hot dog summer'"}
+          alt={"Instagram post about back to school eating hot dogs"}
         />
 
         <img
           className={imageGroup}
           src={"/IMG_7142.jpg"}
-          alt={"Three hot dogs with mustard reading 'hot dog summer'"}
+          alt={
+            "Instagram meme about human being mostly hot dog instead of water"
+          }
         />
       </div>
     </div>
