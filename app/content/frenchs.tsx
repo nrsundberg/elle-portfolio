@@ -19,7 +19,7 @@ export default function () {
       </p>
       <img
         className={"px-10 my-4"}
-        src={"/HotDogSummer.PNG"}
+        src={"frenchs/HotDogSummer.PNG"}
         alt={"Cut article about hot dog summer"}
       />
 
@@ -34,7 +34,7 @@ export default function () {
       <div className="w-full flex justify-center">
         <img
           className={"px-10 my-4 h-96 w-86"}
-          src={"/IMG_7144.jpg"}
+          src={"frenchs/IMG_7144.jpg"}
           alt={"Three hot dogs with mustard reading 'hot dog summer'"}
         />
       </div>
@@ -43,25 +43,25 @@ export default function () {
       <div className={"grid grid-cols-4 mt-4"}>
         <img
           className={imageGroup}
-          src={"/IMG_7143.jpg"}
+          src={"frenchs/IMG_7143.jpg"}
           alt={"One million hot dogs will be consumed article headline"}
         />
 
         <img
           className={imageGroup}
-          src={"/IMG_7141.jpg"}
+          src={"frenchs/IMG_7141.jpg"}
           alt={"Fake olympic podium for hot dog eating"}
         />
 
         <img
           className={imageGroup}
-          src={"/IMG_7140.jpg"}
+          src={"frenchs/IMG_7140.jpg"}
           alt={"Instagram post about back to school eating hot dogs"}
         />
 
         <img
           className={imageGroup}
-          src={"/IMG_7142.jpg"}
+          src={"frenchs/IMG_7142.jpg"}
           alt={
             "Instagram meme about human being mostly hot dog instead of water"
           }

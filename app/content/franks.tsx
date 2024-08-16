@@ -11,25 +11,25 @@ export default function () {
       <div className={"grid grid-cols-4 mt-4 justify-items-center"}>
         <img
           className={imageGroup}
-          src={"/IMG_7146.jpg"}
+          src={"franks/IMG_7146.jpg"}
           alt={"Frank's instagram post - brainrot meme"}
         />
 
         <img
           className={imageGroup}
-          src={"/IMG_7147.jpg"}
+          src={"franks/IMG_7147.jpg"}
           alt={"Frank's instagram post - texting meme"}
         />
 
         <img
           className={imageGroup}
-          src={"/IMG_7151.jpg"}
+          src={"franks/IMG_7151.jpg"}
           alt={"Frank's instagram post - Sriracha in car glove box"}
         />
 
         <img
           className={imageGroup}
-          src={"/IMG_7164.jpg"}
+          src={"franks/IMG_7164.jpg"}
           alt={"Frank's instagram post - Franks mini filling up purse"}
         />
       </div>

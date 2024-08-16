@@ -4,6 +4,7 @@ import { Page } from "~/components/Page";
 import Frenchs from "~/content/frenchs";
 import Substack from "~/content/substack";
 import Franks from "~/content/franks";
+import Courtyard from "~/content/courtyard";
 
 export const meta: MetaFunction = () => {
   return [
@@ -44,8 +45,9 @@ export default function () {
         className="top-60 left-20"
         gradient={"bg-gradient-to-r from-[#CD1512] to-[#F2B303]"}
       >
-        {<div></div>}
+        <Courtyard />
       </FolderButton>
+
       <FolderButton
         label="Raffertys Pizza"
         className="top-15 right-20"
