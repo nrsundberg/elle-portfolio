@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ButtonHTMLAttributes, ReactNode, useState } from "react";
 import folder from "../../public/folder.png";
 import PopupCard from "./PopupCard";
 
@@ -7,14 +7,16 @@ export type ContentType = {
   image: string;
 };
 
-type FolderButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+type FolderButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   label: string;
-  contentpopup: ContentType[];
+  children: ReactNode
+  gradient: string
 };
 
 export function FolderButton({
   label,
-  contentpopup,
+  children,
+  gradient,
   ...props
 }: FolderButtonProps) {
   const [open, setOpen] = useState(false);
@@ -44,8 +46,8 @@ export function FolderButton({
         open={open}
         setOpen={setOpen}
         title={label}
-        contentpopup={contentpopup}
-      />
+        gradient={gradient}
+      >{children}</PopupCard>
     </div>
   );
 }
