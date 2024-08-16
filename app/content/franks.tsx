@@ -8,7 +8,7 @@ export default function () {
         Sriracha squeeze product.
       </p>
 
-      <div className={"grid grid-cols-3 mt-4"}>
+      <div className={"grid grid-cols-3 mt-4 justify-items-center"}>
         <img
           className={imageGroup}
           src={"/IMG_7146.jpg"}
