@@ -9,6 +9,7 @@ export default function () {
         tourist destination.
       </p>
 
+      <iframe src={"courtyard/TheCourtyard.pdf"} width="100%" height="500px" />
       <p>
         I also created and now manage The Courtyard's social media accounts. We
         aim to post twice a week, and each post is meant to be informative and

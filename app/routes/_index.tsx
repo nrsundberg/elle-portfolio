@@ -5,6 +5,8 @@ import Frenchs from "~/content/frenchs";
 import Substack from "~/content/substack";
 import Franks from "~/content/franks";
 import Courtyard from "~/content/courtyard";
+import Raffertys from "~/content/raffertys";
+import Takedown from "~/content/takedown";
 
 export const meta: MetaFunction = () => {
   return [
@@ -17,7 +19,7 @@ export default function () {
   return (
     <Page>
       <FolderButton
-        label="French's Hot Dog Summer"
+        label="French's: Hot Dog Summer"
         className="bottom-60 right-40"
         gradient={"bg-gradient-to-r from-[#CD1512] to-[#F2B303]"}
       >
@@ -25,7 +27,7 @@ export default function () {
       </FolderButton>
 
       <FolderButton
-        label="Substack - Elle Dresses Well"
+        label="Substack: Elle Dresses Well"
         className="top-32 left-1/2"
         gradient={"bg-gradient-to-r from-[#c237bd] to-[#ffffff]"}
       >
@@ -33,7 +35,7 @@ export default function () {
       </FolderButton>
 
       <FolderButton
-        label="Frank's Red Hot"
+        label="Frank's Red Hot: Sriracha Launch"
         className="top-1/2 left-1/2"
         gradient={"bg-gradient-to-r from-[#CA273A] to-[#ed3029]"}
       >
@@ -41,26 +43,27 @@ export default function () {
       </FolderButton>
 
       <FolderButton
-        label="The Courtyard"
+        label="The Courtyard: Brand Design"
         className="top-60 left-20"
-        gradient={"bg-gradient-to-r from-[#CD1512] to-[#F2B303]"}
+        gradient={"bg-gradient-to-r from-[#3F3C1D] to-[#cbb82a]"}
       >
         <Courtyard />
       </FolderButton>
 
       <FolderButton
-        label="Raffertys Pizza"
+        label="Rafferty's Pizza: Organic Social"
         className="top-15 right-20"
-        gradient={"bg-gradient-to-r from-[#CD1512] to-[#F2B303]"}
+        gradient={"bg-gradient-to-r from-[#048445] to-[#ec5625]"}
       >
-        {<div></div>}
+        <Raffertys />
       </FolderButton>
+
       <FolderButton
-        label="Takdown Gym"
+        label="Takdown Gym: Organic Social"
         className="bottom-40 left-32"
-        gradient={"bg-gradient-to-r from-[#CD1512] to-[#F2B303]"}
+        gradient={"bg-gradient-to-r from-[#020200] to-[#c3d600]"}
       >
-        {<div></div>}
+        <Takedown />
       </FolderButton>
     </Page>
   );

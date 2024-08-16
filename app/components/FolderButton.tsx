@@ -1,5 +1,4 @@
 import { ButtonHTMLAttributes, ReactNode, useState } from "react";
-import folder from "../../public/folder.png";
 import PopupCard from "./PopupCard";
 
 export type ContentType = {
@@ -32,7 +31,7 @@ export function FolderButton({
       >
         <img
           id="folder"
-          src={folder}
+          src={"folder.png"}
           alt="Folder Icon Button"
           width="75"
           height="75"
