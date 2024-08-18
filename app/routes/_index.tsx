@@ -1,5 +1,4 @@
 import type { MetaFunction } from "@remix-run/node";
-import { FolderButton } from "~/components/FolderButton";
 import { Page } from "~/components/Page";
 import Frenchs from "~/content/frenchs";
 import Substack from "~/content/substack";
@@ -7,6 +6,7 @@ import Franks from "~/content/franks";
 import Courtyard from "~/content/courtyard";
 import Raffertys from "~/content/raffertys";
 import Takedown from "~/content/takedown";
+import { FolderButton } from "~/components/FolderButton";
 
 export const meta: MetaFunction = () => {
   return [
@@ -36,7 +36,7 @@ export default function () {
 
       <FolderButton
         label="Frank's Red Hot: Sriracha Launch"
-        className="top-1/2 left-1/2"
+        className="top-1/3 right-20"
         gradient={"bg-gradient-to-r from-[#CA273A] to-[#ed3029]"}
       >
         <Franks />

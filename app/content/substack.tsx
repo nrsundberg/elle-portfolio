@@ -1,6 +1,13 @@
 export default function () {
   return (
     <div className="w-full flex-col py-1 px-2">
+      <div className="flex items-center justify-center mb-3">
+        <img
+          src="/legally blonde font.PNG"
+          alt="Substack cover photo"
+          className="h-64 justify-self-center"
+        />
+      </div>
       <p>
         Over the last 6 months I have formed a community of 2k+ subscribers
         through writing on

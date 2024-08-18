@@ -6,7 +6,11 @@ export default {
     "./app/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "hero-pattern": "url('/elle logo.png')",
+      },
+    },
   },
   plugins: [],
 } satisfies Config;
