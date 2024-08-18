@@ -11,6 +11,7 @@ import Angie from "~/content/angie";
 import OldBay from "~/content/oldBay";
 import FranksOrganic from "~/content/franksOrganic";
 import { useLoaderData } from "@remix-run/react";
+import { useEffect, useMemo, useState } from "react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -43,7 +44,7 @@ export default function () {
 
       <FolderButton
         label="French's: Hot Dog Summer"
-        className="top-1/2 left-20"
+        className="top-[50%] left-10"
         gradient={"bg-gradient-to-r from-[#CD1512] to-[#F2B303]"}
       >
         <Frenchs />
@@ -51,7 +52,7 @@ export default function () {
 
       <FolderButton
         label="Frank's Red Hot: Sriracha Launch"
-        className="top-1/2 right-20"
+        className="bottom-1/3 right-10"
         gradient={"bg-gradient-to-r from-[#CA273A] to-[#ed3029]"}
       >
         <Franks />
@@ -59,7 +60,7 @@ export default function () {
 
       <FolderButton
         label="Frank's Red Hot: Organic Social"
-        className="top-32 left-1/2"
+        className="top-32 left-60"
         gradient={"bg-gradient-to-r from-[#CA273A] to-[#ed3029]"}
       >
         <FranksOrganic />
@@ -67,7 +68,7 @@ export default function () {
 
       <FolderButton
         label="Takedown Gym: Organic Social"
-        className="top-60 left-20"
+        className="top-40 left-20"
         gradient={"bg-gradient-to-r from-[#020200] to-[#c3d600]"}
       >
         <Takedown />
@@ -100,7 +101,7 @@ export default function () {
 
       <FolderButton
         label="Angela Headlee: Logo Design"
-        className="bottom-40 left-1/2"
+        className="bottom-20 left-1"
         gradient={"bg-gradient-to-r from-[#002349] to-[#C29B40]"}
       >
         <Angie />
