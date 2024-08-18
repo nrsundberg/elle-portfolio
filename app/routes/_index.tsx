@@ -8,6 +8,8 @@ import Raffertys from "~/content/raffertys";
 import Takedown from "~/content/takedown";
 import { FolderButton } from "~/components/FolderButton";
 import Angie from "~/content/angie";
+import OldBay from "~/content/oldBay";
+import FranksOrganic from "~/content/franksOrganic";
 
 export const meta: MetaFunction = () => {
   return [
@@ -21,7 +23,7 @@ export default function () {
     <Page>
       <FolderButton
         label="French's: Hot Dog Summer"
-        className="bottom-60 right-40"
+        className="top-1/3 left-20"
         gradient={"bg-gradient-to-r from-[#CD1512] to-[#F2B303]"}
       >
         <Frenchs />
@@ -29,7 +31,7 @@ export default function () {
 
       <FolderButton
         label="Substack: Elle Dresses Well"
-        className="top-32 left-1/2"
+        className="top-60 left-20"
         gradient={"bg-gradient-to-r from-[#c237bd] to-[#ffffff]"}
       >
         <Substack />
@@ -44,8 +46,16 @@ export default function () {
       </FolderButton>
 
       <FolderButton
+        label="Frank's Red Hot: Organic Social"
+        className="top-32 left-1/2"
+        gradient={"bg-gradient-to-r from-[#CA273A] to-[#ed3029]"}
+      >
+        <FranksOrganic />
+      </FolderButton>
+
+      <FolderButton
         label="The Courtyard: Brand Design"
-        className="top-60 left-20"
+        className="bottom-60 right-40"
         gradient={"bg-gradient-to-r from-[#3F3C1D] to-[#cbb82a]"}
       >
         <Courtyard />
@@ -60,9 +70,17 @@ export default function () {
       </FolderButton>
 
       <FolderButton
+        label="Old Bay: Organic Social"
+        className="top-32 right-20"
+        //TOTO: Check gradient
+        gradient={"bg-gradient-to-r from-[#1950E5] to-[#DFBF00]"}
+      >
+        <OldBay />
+      </FolderButton>
+
+      <FolderButton
         label="Angie Headlee: Logo Design"
         className="bottom-40 left-32"
-        //TOTO: Add gradient
         gradient={"bg-gradient-to-r from-[#002349] to-[#C29B40]"}
       >
         <Angie />
