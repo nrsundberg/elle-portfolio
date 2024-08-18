@@ -1,3 +1,5 @@
+import { InstagramEmbed } from "react-social-media-embed";
+
 export const imageGroup = {
   images: "h-100 w-80",
   parent: "grid auto-rows-max mt-4 gap-4 justify-items-center",
@@ -6,31 +8,28 @@ export const imageGroup = {
 export default function () {
   return (
     <div className={"w-full px-2 py-1"}>
-      <p>asdkn;alskdna;sld</p>
+      <p>
+        Frank's tone of voice is irreverent, confident, and as I like to say:
+        savage. We're America's favorite hot sauce, of course we are going to
+        heat things up on social media.
+      </p>
 
       <div className={imageGroup.parent}>
-        <img
-          className={imageGroup.images}
-          src={"franks/IMG_7148.jpg"}
-          alt={"Frank's instagram post - texting meme"}
+        <InstagramEmbed
+          url="https://www.instagram.com/p/C84mMrttnCa/?hl=en"
+          width={328}
         />
-
-        <img
-          className={imageGroup.images}
-          src={"franks/IMG_7150.jpg"}
-          alt={"Frank's instagram post - dipping Frank's in Frank's meme"}
+        <InstagramEmbed
+          url="https://www.instagram.com/p/C8e2ev-uXQE/?hl=en"
+          width={328}
         />
-
-        <img
-          className={imageGroup.images}
-          src={"franks/IMG_7145.jpg"}
-          alt={"Frank's instagram post - Olympic champion meme"}
+        <InstagramEmbed
+          url="https://www.instagram.com/p/C-DbmLzTXmA/?hl=en&img_index=1"
+          width={328}
         />
-
-        <img
-          className={imageGroup.images}
-          src={"franks/IMG_7152.jpg"}
-          alt={"Frank's instagram post - texting grandma meme"}
+        <InstagramEmbed
+          url="https://www.instagram.com/p/C5i_JObskSE/?hl=en"
+          width={328}
         />
       </div>
     </div>

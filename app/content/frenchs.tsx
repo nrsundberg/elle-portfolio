@@ -1,3 +1,4 @@
+import { InstagramEmbed } from "react-social-media-embed";
 import { imageGroup } from "./franksOrganic";
 
 export default function () {
@@ -24,7 +25,7 @@ export default function () {
       />
 
       <p>
-        The image below has become French's most engaged with post of all time.
+        The image below has become French's most engaged with post of all time:
       </p>
       <ul className={"list-disc pl-6"}>
         <li>137,744 impressions (70x benchmark)</li>
@@ -32,39 +33,31 @@ export default function () {
       </ul>
 
       <div className="w-full flex justify-center">
-        <img
-          className={"px-10 my-4 h-96 w-86"}
-          src={"frenchs/IMG_7144.jpg"}
-          alt={"Three hot dogs with mustard reading 'hot dog summer'"}
+        <InstagramEmbed
+          url="https://www.instagram.com/p/C8M069ON8An/?hl=en"
+          width={328}
+          className="mt-3"
         />
       </div>
       <p>Hot dog content has been hot for French's all summer long: </p>
 
       <div className={imageGroup.parent}>
-        <img
-          className={imageGroup.images}
-          src={"frenchs/IMG_7143.jpg"}
-          alt={"One million hot dogs will be consumed article headline"}
+        <InstagramEmbed
+          url="https://www.instagram.com/p/C-DUxgjTAoB/?hl=en&img_index=1"
+          width={328}
+        />
+        <InstagramEmbed
+          url="https://www.instagram.com/p/C9h0KIet0tY/?hl=en"
+          width={328}
         />
 
-        <img
-          className={imageGroup.images}
-          src={"frenchs/IMG_7141.jpg"}
-          alt={"Fake olympic podium for hot dog eating"}
+        <InstagramEmbed
+          url="https://www.instagram.com/p/C-X-j8svBNS/?hl=en"
+          width={328}
         />
-
-        <img
-          className={imageGroup.images}
-          src={"frenchs/IMG_7140.jpg"}
-          alt={"Instagram post about back to school eating hot dogs"}
-        />
-
-        <img
-          className={imageGroup.images}
-          src={"frenchs/IMG_7142.jpg"}
-          alt={
-            "Instagram meme about human being mostly hot dog instead of water"
-          }
+        <InstagramEmbed
+          url="https://www.instagram.com/p/C9z377ZvuVE/?hl=en"
+          width={328}
         />
       </div>
     </div>

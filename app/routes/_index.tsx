@@ -10,6 +10,7 @@ import { FolderButton } from "~/components/FolderButton";
 import Angie from "~/content/angie";
 import OldBay from "~/content/oldBay";
 import FranksOrganic from "~/content/franksOrganic";
+import { useLoaderData } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -18,7 +19,18 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export async function loader() {
+  // const substack = fetch(
+  //   "https://substackapi.com/api/feeds/ellesundberg.substack.com?limit=5&sort=top",
+  // ).then((res) => res.json());
+  // return substack;
+
+  return null;
+}
+
 export default function () {
+  const data = useLoaderData();
+
   return (
     <Page>
       <FolderButton
@@ -26,7 +38,7 @@ export default function () {
         className="bottom-40 left-32"
         gradient={"bg-gradient-to-r from-[#c237bd] to-[#ffffff]"}
       >
-        <Substack />
+        <Substack posts={data} />
       </FolderButton>
 
       <FolderButton
@@ -54,7 +66,7 @@ export default function () {
       </FolderButton>
 
       <FolderButton
-        label="Takdown Gym: Organic Social"
+        label="Takedown Gym: Organic Social"
         className="top-60 left-20"
         gradient={"bg-gradient-to-r from-[#020200] to-[#c3d600]"}
       >
@@ -70,7 +82,7 @@ export default function () {
       </FolderButton>
 
       <FolderButton
-        label="Old Bay: Organic Social"
+        label="OLD BAY: Organic Social"
         className="top-80 right-20"
         //TOTO: Check gradient
         gradient={"bg-gradient-to-r from-[#1950E5] to-[#DFBF00]"}
@@ -80,14 +92,14 @@ export default function () {
 
       <FolderButton
         label="The Courtyard: Brand Design"
-        className="bottom-60 right-40"
+        className="bottom-72 right-40"
         gradient={"bg-gradient-to-r from-[#3F3C1D] to-[#cbb82a]"}
       >
         <Courtyard />
       </FolderButton>
 
       <FolderButton
-        label="Angie Headlee: Logo Design"
+        label="Angela Headlee: Logo Design"
         className="bottom-40 left-1/2"
         gradient={"bg-gradient-to-r from-[#002349] to-[#C29B40]"}
       >

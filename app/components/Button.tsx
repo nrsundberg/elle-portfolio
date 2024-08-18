@@ -71,10 +71,12 @@ export function PopupList({
        border-2 border-slate-100  border-r-slate-700"
         >
           <MenuListItem>
-            <div className="flex items-center gap-2">
-              <FaFileContract />
-              Portfolio
-            </div>
+            <Link to="/ElleSundberg_Resume.pdf" target="_blank" download>
+              <div className="flex items-center gap-2">
+                <FaFileContract />
+                Resume
+              </div>
+            </Link>
           </MenuListItem>
           <MenuListItem>
             <div className="flex items-center gap-2">

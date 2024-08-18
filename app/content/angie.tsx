@@ -10,8 +10,8 @@ export default function () {
 
       <img
         className="py-2"
-        src={"angie/AngelaHeadleeLogo.PNG"}
-        alt={"Angie Headlee final logo"}
+        src={"angele/AngelaHeadleeLogo.PNG"}
+        alt={"Angela Headlee final logo"}
       />
 
       <p>
@@ -22,8 +22,8 @@ export default function () {
 
       <img
         className="py-2"
-        src={"angie/AngelaHeadleeLogoVariations.PNG"}
-        alt={"Angie Headlee logo variations"}
+        src={"angela/AngelaHeadleeLogoVariations.PNG"}
+        alt={"Angela Headlee logo variations"}
       />
     </div>
   );
