@@ -10,7 +10,7 @@ export default function () {
 
       <img
         className="py-2"
-        src={"angele/AngelaHeadleeLogo.PNG"}
+        src={"angela/AngelaHeadleeLogo.PNG"}
         alt={"Angela Headlee final logo"}
       />
 
