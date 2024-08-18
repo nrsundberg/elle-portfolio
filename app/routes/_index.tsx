@@ -7,6 +7,7 @@ import Courtyard from "~/content/courtyard";
 import Raffertys from "~/content/raffertys";
 import Takedown from "~/content/takedown";
 import { FolderButton } from "~/components/FolderButton";
+import Angie from "~/content/angie";
 
 export const meta: MetaFunction = () => {
   return [
@@ -59,12 +60,21 @@ export default function () {
       </FolderButton>
 
       <FolderButton
+        label="Angie Headlee: Logo Design"
+        className="bottom-40 left-32"
+        //TOTO: Add gradient
+        gradient={"bg-gradient-to-r from-[#002349] to-[#C29B40]"}
+      >
+        <Angie />
+      </FolderButton>
+
+      {/* <FolderButton
         label="Takdown Gym: Organic Social"
         className="bottom-40 left-32"
         gradient={"bg-gradient-to-r from-[#020200] to-[#c3d600]"}
       >
-        <Takedown />
-      </FolderButton>
+        <Takedown /> */}
+      {/* </FolderButton> */}
     </Page>
   );
 }
