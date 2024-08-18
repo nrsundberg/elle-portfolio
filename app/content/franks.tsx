@@ -1,4 +1,4 @@
-const imageGroup = "h-64 w-48";
+import { imageGroup } from "./franksOrganic";
 
 export default function () {
   return (
@@ -8,27 +8,27 @@ export default function () {
         Sriracha squeeze product.
       </p>
 
-      <div className={"grid grid-cols-4 mt-4 justify-items-center"}>
+      <div className={imageGroup.parent}>
         <img
-          className={imageGroup}
+          className={imageGroup.images}
           src={"franks/IMG_7146.jpg"}
           alt={"Frank's instagram post - brainrot meme"}
         />
 
         <img
-          className={imageGroup}
+          className={imageGroup.images}
           src={"franks/IMG_7147.jpg"}
           alt={"Frank's instagram post - texting meme"}
         />
 
         <img
-          className={imageGroup}
+          className={imageGroup.images}
           src={"franks/IMG_7151.jpg"}
           alt={"Frank's instagram post - Sriracha in car glove box"}
         />
 
         <img
-          className={imageGroup}
+          className={imageGroup.images}
           src={"franks/IMG_7164.jpg"}
           alt={"Frank's instagram post - Franks mini filling up purse"}
         />

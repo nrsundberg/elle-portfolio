@@ -1,4 +1,4 @@
-const imageGroup = "h-64 w-48";
+import { imageGroup } from "./franksOrganic";
 
 export default function () {
   return (
@@ -40,27 +40,27 @@ export default function () {
       </div>
       <p>Hot dog content has been hot for French's all summer long: </p>
 
-      <div className={"grid grid-cols-4 mt-4"}>
+      <div className={imageGroup.parent}>
         <img
-          className={imageGroup}
+          className={imageGroup.images}
           src={"frenchs/IMG_7143.jpg"}
           alt={"One million hot dogs will be consumed article headline"}
         />
 
         <img
-          className={imageGroup}
+          className={imageGroup.images}
           src={"frenchs/IMG_7141.jpg"}
           alt={"Fake olympic podium for hot dog eating"}
         />
 
         <img
-          className={imageGroup}
+          className={imageGroup.images}
           src={"frenchs/IMG_7140.jpg"}
           alt={"Instagram post about back to school eating hot dogs"}
         />
 
         <img
-          className={imageGroup}
+          className={imageGroup.images}
           src={"frenchs/IMG_7142.jpg"}
           alt={
             "Instagram meme about human being mostly hot dog instead of water"
