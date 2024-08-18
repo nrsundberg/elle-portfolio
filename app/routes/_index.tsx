@@ -22,24 +22,24 @@ export default function () {
   return (
     <Page>
       <FolderButton
-        label="French's: Hot Dog Summer"
-        className="top-1/3 left-20"
-        gradient={"bg-gradient-to-r from-[#CD1512] to-[#F2B303]"}
-      >
-        <Frenchs />
-      </FolderButton>
-
-      <FolderButton
         label="Substack: Elle Dresses Well"
-        className="top-60 left-20"
+        className="bottom-40 left-32"
         gradient={"bg-gradient-to-r from-[#c237bd] to-[#ffffff]"}
       >
         <Substack />
       </FolderButton>
 
       <FolderButton
+        label="French's: Hot Dog Summer"
+        className="top-1/2 left-20"
+        gradient={"bg-gradient-to-r from-[#CD1512] to-[#F2B303]"}
+      >
+        <Frenchs />
+      </FolderButton>
+
+      <FolderButton
         label="Frank's Red Hot: Sriracha Launch"
-        className="top-1/3 right-20"
+        className="top-1/2 right-20"
         gradient={"bg-gradient-to-r from-[#CA273A] to-[#ed3029]"}
       >
         <Franks />
@@ -54,11 +54,11 @@ export default function () {
       </FolderButton>
 
       <FolderButton
-        label="The Courtyard: Brand Design"
-        className="bottom-60 right-40"
-        gradient={"bg-gradient-to-r from-[#3F3C1D] to-[#cbb82a]"}
+        label="Takdown Gym: Organic Social"
+        className="top-60 left-20"
+        gradient={"bg-gradient-to-r from-[#020200] to-[#c3d600]"}
       >
-        <Courtyard />
+        <Takedown />
       </FolderButton>
 
       <FolderButton
@@ -71,7 +71,7 @@ export default function () {
 
       <FolderButton
         label="Old Bay: Organic Social"
-        className="top-32 right-20"
+        className="top-80 right-20"
         //TOTO: Check gradient
         gradient={"bg-gradient-to-r from-[#1950E5] to-[#DFBF00]"}
       >
@@ -79,20 +79,20 @@ export default function () {
       </FolderButton>
 
       <FolderButton
+        label="The Courtyard: Brand Design"
+        className="bottom-60 right-40"
+        gradient={"bg-gradient-to-r from-[#3F3C1D] to-[#cbb82a]"}
+      >
+        <Courtyard />
+      </FolderButton>
+
+      <FolderButton
         label="Angie Headlee: Logo Design"
-        className="bottom-40 left-32"
+        className="bottom-40 left-1/2"
         gradient={"bg-gradient-to-r from-[#002349] to-[#C29B40]"}
       >
         <Angie />
       </FolderButton>
-
-      {/* <FolderButton
-        label="Takdown Gym: Organic Social"
-        className="bottom-40 left-32"
-        gradient={"bg-gradient-to-r from-[#020200] to-[#c3d600]"}
-      >
-        <Takedown /> */}
-      {/* </FolderButton> */}
     </Page>
   );
 }
