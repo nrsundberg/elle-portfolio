@@ -21,12 +21,12 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader() {
-  // const substack = fetch(
-  //   "https://substackapi.com/api/feeds/ellesundberg.substack.com?limit=5&sort=top",
-  // ).then((res) => res.json());
-  // return substack;
+  const substack = fetch(
+    "https://substackapi.com/api/feeds/ellesundberg.substack.com?limit=5&sort=top",
+  ).then((res) => res.json());
+  return substack;
 
-  return null;
+  // return null;
 }
 
 export default function () {
