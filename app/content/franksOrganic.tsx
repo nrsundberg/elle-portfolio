@@ -31,9 +31,8 @@ export default function () {
           url="https://www.instagram.com/p/C5i_JObskSE/?hl=en"
           width={328}
         />
-        {/* <TikTokEmbed url="" width={325} /> */}
-        {/* <TikTokEmbed url="" width={328} /> */}
-        {/* <TikTokEmbed url="" width={325} /> */}
+        <TikTokEmbed url="https://www.tiktok.com/@franksredhot/video/7390448809614019882" width={328} />
+        <TikTokEmbed url="https://www.tiktok.com/@franksredhot/photo/7347724381163965727" width={325} />
       </div>
     </div>
   );
