@@ -1,4 +1,4 @@
-import { InstagramEmbed, TiktokEmbed } from "react-social-media-embed";
+import { InstagramEmbed, TikTokEmbed } from "react-social-media-embed";
 
 export const imageGroup = {
   images: "h-100 w-80",
@@ -31,8 +31,7 @@ export default function () {
           url="https://www.instagram.com/p/C5i_JObskSE/?hl=en"
           width={328}
         />
-        <TikTokEmbed url="https://www.tiktok.com/@franksredhot/video/7390448809614019882" width={328} />
-        <TikTokEmbed url="https://www.tiktok.com/@franksredhot/photo/7347724381163965727" width={325} />
+        <TikTokEmbed url="https://www.tiktok.com/@franksredhot/video/7390448809614019882" width={325} />
       </div>
     </div>
   );
