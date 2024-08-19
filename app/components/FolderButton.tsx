@@ -8,12 +8,14 @@ export type ContentType = {
 
 type FolderButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   label: string;
+  sublabel: string;
   children: ReactNode;
   gradient: string;
 };
 
 export function FolderButton({
   label,
+  sublabel,
   children,
   gradient,
   ...props
@@ -26,7 +28,7 @@ export function FolderButton({
         onClick={() => setOpen(!open)}
         {...props}
         className={
-          "grid auto-rows-auto justify-items-center absolute " + props.className
+          "flex flex-col justify-items-center absolute " + props.className
         }
       >
         <img
@@ -38,7 +40,11 @@ export function FolderButton({
           className="self-center"
         />
         <label className="text-white" htmlFor="folder">
-          {label}
+          <p>
+            {label}
+            <br />
+            {sublabel}
+          </p>
         </label>
       </button>
       <PopupCard

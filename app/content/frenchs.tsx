@@ -1,4 +1,4 @@
-import { InstagramEmbed } from "react-social-media-embed";
+import { InstagramEmbed, TikTokEmbed } from "react-social-media-embed";
 import { imageGroup } from "./franksOrganic";
 
 export default function () {
@@ -59,6 +59,8 @@ export default function () {
           url="https://www.instagram.com/p/C9z377ZvuVE/?hl=en"
           width={328}
         />
+        {/* <TikTokEmbed url="" width={328} /> */}
+        {/* <TikTokEmbed url="" width={328} /> */}
       </div>
     </div>
   );

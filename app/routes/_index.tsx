@@ -11,7 +11,7 @@ import Angie from "~/content/angie";
 import OldBay from "~/content/oldBay";
 import FranksOrganic from "~/content/franksOrganic";
 import { useLoaderData } from "@remix-run/react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -21,70 +21,111 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader() {
-  const substack = fetch(
-    "https://substackapi.com/api/feeds/ellesundberg.substack.com?limit=5&sort=top",
-  ).then((res) => res.json());
-  return substack;
+  // const substack = fetch(
+  //   "https://substackapi.com/api/feeds/ellesundberg.substack.com?limit=5&sort=top",
+  // ).then((res) => res.json());
+  // return substack;
 
-  // return null;
+  return "aidhoaihd";
 }
 
 export default function () {
   const data = useLoaderData();
+  const [inactive, setInactive] = useState(false);
 
-  return (
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+
+    const resetTimeout = () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        setInactive(true);
+      }, 30000);
+    };
+
+    const handleMove = () => {
+      setInactive(false);
+      resetTimeout();
+    };
+
+    window.addEventListener("mousemove", handleMove);
+    window.addEventListener("keydown", handleMove);
+    window.addEventListener("mousedown", handleMove);
+    window.addEventListener("wheel", handleMove);
+
+    resetTimeout();
+
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener("mousemove", handleMove);
+      window.removeEventListener("keydown", handleMove);
+      window.removeEventListener("mousedown", handleMove);
+      window.addEventListener("wheel", handleMove);
+    };
+  }, []);
+
+  return inactive ? (
+    <Screensaver />
+  ) : (
     <Page>
       <FolderButton
-        label="Substack: Elle Dresses Well"
-        className="bottom-40 left-32"
+        label="Substack:"
+        sublabel=" Elle Dresses Well"
+        className="bottom-20 right-1 lg:bottom-40 lg:right-32"
         gradient={"bg-gradient-to-r from-[#c237bd] to-[#ffffff]"}
       >
         <Substack posts={data} />
       </FolderButton>
 
       <FolderButton
-        label="French's: Hot Dog Summer"
-        className="top-[50%] left-10"
+        label="French's:"
+        sublabel="Hot Dog Summer"
+        className="left-1 bottom-52 lg:bottom-[50%] lg:left-10"
         gradient={"bg-gradient-to-r from-[#CD1512] to-[#F2B303]"}
       >
         <Frenchs />
       </FolderButton>
 
       <FolderButton
-        label="Frank's Red Hot: Sriracha Launch"
-        className="bottom-1/3 right-10"
+        label="Frank's Red Hot:"
+        sublabel="Sriracha Launch"
+        className="right-1 bottom-52 lg:bottom-1/3 lg:right-10"
         gradient={"bg-gradient-to-r from-[#CA273A] to-[#ed3029]"}
       >
         <Franks />
       </FolderButton>
 
       <FolderButton
-        label="Frank's Red Hot: Organic Social"
-        className="top-32 left-60"
+        label="Frank's Red Hot:"
+        sublabel="Organic Social"
+        className="right-1 top-40 lg:top-32 lg:right-60"
         gradient={"bg-gradient-to-r from-[#CA273A] to-[#ed3029]"}
       >
         <FranksOrganic />
       </FolderButton>
 
       <FolderButton
-        label="Takedown Gym: Organic Social"
-        className="top-40 left-20"
+        label="Takedown Gym:"
+        sublabel="Organic Social"
+        className="top-5 left-1 lg:top-40 lg:left-20"
         gradient={"bg-gradient-to-r from-[#020200] to-[#c3d600]"}
       >
         <Takedown />
       </FolderButton>
 
       <FolderButton
-        label="Rafferty's Pizza: Organic Social"
-        className="top-15 right-20"
+        label="Rafferty's Pizza:"
+        sublabel="Organic Social"
+        className="top-5 right-1 lg:top-15 lg:right-20"
         gradient={"bg-gradient-to-r from-[#048445] to-[#ec5625]"}
       >
         <Raffertys />
       </FolderButton>
 
       <FolderButton
-        label="OLD BAY: Organic Social"
-        className="top-80 right-20"
+        label="OLD BAY:"
+        sublabel="Organic Social"
+        className="left-1/3 top-5 lg:top-80 lg:left-1/3"
         //TOTO: Check gradient
         gradient={"bg-gradient-to-r from-[#1950E5] to-[#DFBF00]"}
       >
@@ -92,20 +133,35 @@ export default function () {
       </FolderButton>
 
       <FolderButton
-        label="The Courtyard: Brand Design"
-        className="bottom-72 right-40"
+        label="The Courtyard:"
+        sublabel="Brand Design"
+        className="left-1 top-40 lg:top-2/3 lg:left-1/2"
         gradient={"bg-gradient-to-r from-[#3F3C1D] to-[#cbb82a]"}
       >
         <Courtyard />
       </FolderButton>
 
       <FolderButton
-        label="Angela Headlee: Logo Design"
+        label="Angela Headlee:"
+        sublabel="Logo Design"
         className="bottom-20 left-1"
         gradient={"bg-gradient-to-r from-[#002349] to-[#C29B40]"}
       >
         <Angie />
       </FolderButton>
     </Page>
+  );
+}
+
+function Screensaver() {
+  return (
+    <div className="fixed inset-0 flex items-center justify-center bg-[url('/screensaver.jpg')] bg-no-repeat bg-cover">
+      <img
+        src="/elle logo.png"
+        alt="Elle logo"
+        className="animate-bounce"
+        style={{ width: "200px", height: "200px" }}
+      />
+    </div>
   );
 }
