@@ -1,4 +1,4 @@
-import { InstagramEmbed } from "react-social-media-embed";
+import { InstagramEmbed, TiktokEmbed } from "react-social-media-embed";
 import { imageGroup } from "./franksOrganic";
 
 export default function () {

@@ -1,4 +1,4 @@
-import { InstagramEmbed } from "react-social-media-embed";
+import { InstagramEmbed, TiktokEmbed } from "react-social-media-embed";
 
 export const imageGroup = {
   images: "h-100 w-80",
