@@ -59,8 +59,7 @@ export default function () {
           url="https://www.instagram.com/p/C9z377ZvuVE/?hl=en"
           width={328}
         />
-        <TikTokEmbed url="https://www.tiktok.com/@frenchsofficial/photo/7393053170416553258" width={328} />
-        <TikTokEmbed url="https://www.tiktok.com/@frenchsofficial/video/7382618649087053102" width={328} />
+        <TikTokEmbed url="https://www.tiktok.com/@frenchsofficial/photo/7393053170416553258" width={325} />
       </div>
     </div>
   );
