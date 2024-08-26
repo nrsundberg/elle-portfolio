@@ -6,7 +6,7 @@ export default function () {
     <div className={"w-full px-2 py-1"}>
       <p>
         Takedown's tone of voice is aspirational, educational, and welcoming.
-        The gym prides themselves on truly offerring something for everyone:
+        The gym prides themselves on truly offering something for everyone:
         busy mom? No worries, we offer childcare services. High school athlete?
         Here is a summer training program from a previous D1 athlete. Have never
         stepped foot in a gym before? Try our guided group fitness classes, full
