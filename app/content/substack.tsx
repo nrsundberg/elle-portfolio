@@ -14,7 +14,7 @@ export default function ({ posts }: { posts: any }) {
       <p>
         Over the last 6 months I have formed a community of 2k+ subscribers
         through writing on Substack. 5 of my posts have reached top 5 on the
-        platform in the Fashion & Beauty categor.
+        platform in the Fashion & Beauty category.
       </p>
 
       {posts ? (
@@ -34,7 +34,7 @@ export default function ({ posts }: { posts: any }) {
       )}
 
       <p>
-        Reading and writing about topics outside of my industry has enabled to
+        Reading and writing about topics outside of my industry has enabled me to
         connect with extremely talented individuals, and has made me a better
         marketer. By not keeping myself in a box, I am able to be most creative
         and well-rounded.
