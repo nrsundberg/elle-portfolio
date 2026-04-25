@@ -1,5 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { CSSProperties, ReactNode } from "react";
+import type {
+  CSSProperties,
+  PointerEvent as ReactPointerEvent,
+  ReactNode,
+} from "react";
 import { useWindowManager } from "./WindowManager";
 
 const MIN_WIDTH = 320;
@@ -124,24 +128,29 @@ export default function PopupCard({
     return () => root.removeEventListener("keydown", onKey);
   }, [isOpen, isMinimized, isActive]);
 
-  // ---- Drag ----
-  const dragStateRef = useRef<{ offsetX: number; offsetY: number } | null>(
-    null,
-  );
+  // ---- Drag ---- (Pointer Events: mouse + touch + pen)
+  const dragStateRef = useRef<{
+    pointerId: number;
+    offsetX: number;
+    offsetY: number;
+  } | null>(null);
   const startDrag = useCallback(
-    (e: React.MouseEvent) => {
+    (e: ReactPointerEvent) => {
       if (!win || isMaximized) return;
-      // Don't begin drag from interactive child (button) — handled via stopPropagation in buttons.
+      // Only react to primary button/touch
+      if (e.button !== undefined && e.button !== 0) return;
       e.preventDefault();
+      const pointerId = e.pointerId;
       dragStateRef.current = {
+        pointerId,
         offsetX: e.clientX - win.position.x,
         offsetY: e.clientY - win.position.y,
       };
-      const onMove = (ev: MouseEvent) => {
-        if (!dragStateRef.current) return;
-        const rawX = ev.clientX - dragStateRef.current.offsetX;
-        const rawY = ev.clientY - dragStateRef.current.offsetY;
-        // Clamp so KEEP_VISIBLE_PX of title bar always reachable
+      const onMove = (ev: PointerEvent) => {
+        const state = dragStateRef.current;
+        if (!state || ev.pointerId !== state.pointerId) return;
+        const rawX = ev.clientX - state.offsetX;
+        const rawY = ev.clientY - state.offsetY;
         const minX = -(win.size.w - KEEP_VISIBLE_PX);
         const maxX = window.innerWidth - KEEP_VISIBLE_PX;
         const minY = 0;
@@ -150,56 +159,68 @@ export default function PopupCard({
         const y = Math.max(minY, Math.min(maxY, rawY));
         updatePosition(id, { x, y });
       };
-      const onUp = () => {
+      const onUp = (ev: PointerEvent) => {
+        const state = dragStateRef.current;
+        if (state && ev.pointerId !== state.pointerId) return;
         dragStateRef.current = null;
-        window.removeEventListener("mousemove", onMove);
-        window.removeEventListener("mouseup", onUp);
+        window.removeEventListener("pointermove", onMove);
+        window.removeEventListener("pointerup", onUp);
+        window.removeEventListener("pointercancel", onUp);
       };
-      window.addEventListener("mousemove", onMove);
-      window.addEventListener("mouseup", onUp);
+      window.addEventListener("pointermove", onMove);
+      window.addEventListener("pointerup", onUp);
+      window.addEventListener("pointercancel", onUp);
     },
     [win, isMaximized, id, updatePosition],
   );
 
-  // ---- Resize ----
+  // ---- Resize ---- (Pointer Events: mouse + touch + pen)
   const resizeStateRef = useRef<{
+    pointerId: number;
     startX: number;
     startY: number;
     startW: number;
     startH: number;
   } | null>(null);
   const startResize = useCallback(
-    (e: React.MouseEvent) => {
+    (e: ReactPointerEvent) => {
       if (!win || isMaximized) return;
+      if (e.button !== undefined && e.button !== 0) return;
       e.preventDefault();
       e.stopPropagation();
       resizeStateRef.current = {
+        pointerId: e.pointerId,
         startX: e.clientX,
         startY: e.clientY,
         startW: win.size.w,
         startH: win.size.h,
       };
-      const onMove = (ev: MouseEvent) => {
-        if (!resizeStateRef.current) return;
-        const dx = ev.clientX - resizeStateRef.current.startX;
-        const dy = ev.clientY - resizeStateRef.current.startY;
+      const onMove = (ev: PointerEvent) => {
+        const state = resizeStateRef.current;
+        if (!state || ev.pointerId !== state.pointerId) return;
+        const dx = ev.clientX - state.startX;
+        const dy = ev.clientY - state.startY;
         const w = Math.max(
           MIN_WIDTH,
-          Math.min(window.innerWidth, resizeStateRef.current.startW + dx),
+          Math.min(window.innerWidth, state.startW + dx),
         );
         const h = Math.max(
           MIN_HEIGHT,
-          Math.min(window.innerHeight, resizeStateRef.current.startH + dy),
+          Math.min(window.innerHeight, state.startH + dy),
         );
         updateSize(id, { w, h });
       };
-      const onUp = () => {
+      const onUp = (ev: PointerEvent) => {
+        const state = resizeStateRef.current;
+        if (state && ev.pointerId !== state.pointerId) return;
         resizeStateRef.current = null;
-        window.removeEventListener("mousemove", onMove);
-        window.removeEventListener("mouseup", onUp);
+        window.removeEventListener("pointermove", onMove);
+        window.removeEventListener("pointerup", onUp);
+        window.removeEventListener("pointercancel", onUp);
       };
-      window.addEventListener("mousemove", onMove);
-      window.addEventListener("mouseup", onUp);
+      window.addEventListener("pointermove", onMove);
+      window.addEventListener("pointerup", onUp);
+      window.addEventListener("pointercancel", onUp);
     },
     [win, isMaximized, id, updateSize],
   );
@@ -233,16 +254,16 @@ export default function PopupCard({
       role="dialog"
       aria-label={title}
       aria-modal={false}
-      onMouseDown={() => focusWindow(id)}
+      onPointerDown={() => focusWindow(id)}
       style={style}
       className="flex flex-col text-[#464147] text-sm border border-white border-b-[#464147] border-r-[#464147] bg-[#cac6cb] outline-none"
     >
       {/* Title bar */}
       <div
-        onMouseDown={startDrag}
+        onPointerDown={startDrag}
         onDoubleClick={() => toggleMaximize(id)}
         className={
-          "shrink-0 flex items-center justify-between p-1 select-none " +
+          "shrink-0 flex items-center justify-between p-1 select-none touch-none " +
           gradient +
           (dimmedTitleBar ? " opacity-60" : "")
         }
@@ -251,7 +272,7 @@ export default function PopupCard({
         <h2 className="text-white text-sm font-bold px-1 truncate">{title}</h2>
         <div
           className="flex items-center space-x-0.5"
-          onMouseDown={(e) => e.stopPropagation()}
+          onPointerDown={(e) => e.stopPropagation()}
         >
           <button
             type="button"
@@ -376,9 +397,9 @@ export default function PopupCard({
       {/* Resize grip (hidden when maximized) */}
       {!isMaximized && (
         <div
-          onMouseDown={startResize}
+          onPointerDown={startResize}
           aria-hidden="true"
-          className="absolute right-0 bottom-0 w-[14px] h-[14px]"
+          className="absolute right-0 bottom-0 w-[22px] h-[22px] flex items-end justify-end touch-none"
           style={{ cursor: "nwse-resize" }}
         >
           <svg

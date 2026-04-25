@@ -53,6 +53,8 @@ const DEFAULT_SIZE = { w: 600, h: 500 };
 const STARTING_Z_INDEX = 50;
 const CASCADE_STEP = 30;
 const CASCADE_WRAP = 8; // wrap cascade after this many to avoid running off-screen
+const FOOTER_HEIGHT = 48; // bottom taskbar height (h-12)
+const VIEWPORT_MARGIN = 8;
 
 function getViewportSize() {
   if (typeof window === "undefined") {
@@ -61,12 +63,31 @@ function getViewportSize() {
   return { w: window.innerWidth, h: window.innerHeight };
 }
 
+function clampSizeToViewport(size: { w: number; h: number }) {
+  const vp = getViewportSize();
+  const maxW = Math.max(160, vp.w - VIEWPORT_MARGIN * 2);
+  const maxH = Math.max(160, vp.h - FOOTER_HEIGHT - VIEWPORT_MARGIN * 2);
+  return {
+    w: Math.min(size.w, maxW),
+    h: Math.min(size.h, maxH),
+  };
+}
+
 function defaultPosition(cascadeIndex: number, size: { w: number; h: number }) {
   const vp = getViewportSize();
-  const baseX = Math.max(0, vp.w / 2 - size.w / 2);
-  const baseY = Math.max(0, vp.h / 2 - size.h / 2);
+  const baseX = Math.max(VIEWPORT_MARGIN, vp.w / 2 - size.w / 2);
+  const baseY = Math.max(VIEWPORT_MARGIN, vp.h / 2 - size.h / 2);
   const offset = (cascadeIndex % CASCADE_WRAP) * CASCADE_STEP;
-  return { x: baseX + offset, y: baseY + offset };
+  // Make sure offset doesn't push window past right/bottom edge
+  const maxX = Math.max(VIEWPORT_MARGIN, vp.w - size.w - VIEWPORT_MARGIN);
+  const maxY = Math.max(
+    VIEWPORT_MARGIN,
+    vp.h - FOOTER_HEIGHT - size.h - VIEWPORT_MARGIN,
+  );
+  return {
+    x: Math.min(baseX + offset, maxX),
+    y: Math.min(baseY + offset, maxY),
+  };
 }
 
 export function WindowManagerProvider({ children }: { children: ReactNode }) {
@@ -127,9 +148,12 @@ export function WindowManagerProvider({ children }: { children: ReactNode }) {
       if (!existing) return prev;
       zCounterRef.current += 1;
       let position = existing.position;
+      let size = existing.size;
       let hasOpenedBefore = existing.hasOpenedBefore;
       if (!hasOpenedBefore) {
-        position = defaultPosition(cascadeCounterRef.current, existing.size);
+        // Clamp to viewport so popups fit on small screens (mobile)
+        size = clampSizeToViewport(existing.size);
+        position = defaultPosition(cascadeCounterRef.current, size);
         cascadeCounterRef.current += 1;
         hasOpenedBefore = true;
       }
@@ -140,6 +164,7 @@ export function WindowManagerProvider({ children }: { children: ReactNode }) {
           isOpen: true,
           isMinimized: false,
           position,
+          size,
           zIndex: zCounterRef.current,
           hasOpenedBefore,
         },
