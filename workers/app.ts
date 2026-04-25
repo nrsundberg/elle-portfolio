@@ -1,4 +1,5 @@
 import { createRequestHandler, RouterContextProvider } from "react-router";
+import type { AppLoadContext } from "react-router";
 
 // @ts-expect-error - build output has no type declarations
 const buildImport = () => import("../build/server/index.js");
@@ -15,6 +16,9 @@ export default {
     const context = new RouterContextProvider();
     (context as any).cloudflare = { env, ctx };
 
-    return createRequestHandler(buildImport, "production")(request, context);
+    return createRequestHandler(buildImport, "production")(
+      request,
+      context as unknown as AppLoadContext,
+    );
   },
 } satisfies ExportedHandler<Env>;

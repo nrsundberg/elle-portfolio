@@ -18,7 +18,7 @@ export default function ({ posts }: { posts: any }) {
       </p>
 
       {posts ? (
-        posts?.map((post) => (
+        posts?.map((post: any) => (
           <PostCard
             key={post.id}
             title={post.title}

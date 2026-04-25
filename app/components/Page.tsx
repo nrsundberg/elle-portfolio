@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import Footer from "./Footer";
 
 function MainPage({ children }: { children: ReactNode }) {

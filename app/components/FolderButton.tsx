@@ -1,5 +1,7 @@
-import { ButtonHTMLAttributes, ReactNode, useState } from "react";
+import { useEffect } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 import PopupCard from "./PopupCard";
+import { useWindowManager } from "./WindowManager";
 
 export type ContentType = {
   text: string;
@@ -13,48 +15,53 @@ type FolderButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   gradient: string;
 };
 
+function makeId(label: string, sublabel: string) {
+  return (label + "-" + sublabel)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export function FolderButton({
   label,
   sublabel,
   children,
   gradient,
+  className,
   ...props
 }: FolderButtonProps) {
-  const [open, setOpen] = useState(false);
+  const id = makeId(label, sublabel);
+  const { registerWindow, openWindow } = useWindowManager();
+  const title = `${label} ${sublabel}`.trim();
+
+  // Register early so the taskbar/state is aware of this window even before it opens.
+  useEffect(() => {
+    registerWindow(id, { title });
+  }, [id, title, registerWindow]);
 
   return (
-    <div>
+    <>
       <button
-        onClick={() => setOpen(!open)}
         {...props}
-        className={
-          "flex flex-col justify-items-center absolute " + props.className
-        }
+        onClick={() => openWindow(id)}
+        className={"flex flex-col justify-items-center " + (className ?? "")}
       >
         <img
-          id="folder"
           src={"folder.png"}
-          alt="Folder Icon Button"
+          alt={`${label} ${sublabel}`}
           width="75"
           height="75"
           className="self-center"
         />
-        <label className="text-white" htmlFor="folder">
-          <p>
-            {label}
-            <br />
-            {sublabel}
-          </p>
-        </label>
+        <span className="text-white">
+          {label}
+          <br />
+          {sublabel}
+        </span>
       </button>
-      <PopupCard
-        open={open}
-        setOpen={setOpen}
-        title={label}
-        gradient={gradient}
-      >
+      <PopupCard id={id} title={title} gradient={gradient}>
         {children}
       </PopupCard>
-    </div>
+    </>
   );
 }
