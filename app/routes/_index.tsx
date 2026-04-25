@@ -1,4 +1,4 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { Route } from "./+types/_index";
 import { Page } from "~/components/Page";
 import Frenchs from "~/content/frenchs";
 import Substack from "~/content/substack";
@@ -10,10 +10,9 @@ import { FolderButton } from "~/components/FolderButton";
 import Angie from "~/content/angie";
 import OldBay from "~/content/oldBay";
 import FranksOrganic from "~/content/franksOrganic";
-import { useLoaderData } from "@remix-run/react";
 import { useEffect, useState } from "react";
 
-export const meta: MetaFunction = () => {
+export const meta: Route.MetaFunction = () => {
   return [
     { title: "Elle Sundberg Portfolio" },
     { name: "description", content: "Welcome to Elle's Portfolio!" },
@@ -21,14 +20,14 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader() {
-  const substack = fetch(
-     "https://substackapi.com/api/feeds/ellesundberg.substack.com?limit=5&sort=top",
+  const substack = await fetch(
+    "https://substackapi.com/api/feeds/ellesundberg.substack.com?limit=5&sort=top",
   ).then((res) => res.json());
   return substack;
 }
 
-export default function () {
-  const data = useLoaderData();
+export default function Index({ loaderData }: Route.ComponentProps) {
+  const data = loaderData;
   const [inactive, setInactive] = useState(false);
 
   useEffect(() => {

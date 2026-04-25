@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { Link } from "react-router";
 import { FaRegHeart, FaRegComment } from "react-icons/fa";
 
 export default function ({ posts }: { posts: any }) {
